@@ -1,0 +1,520 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.Form..Create(BaseForm)
+Gui.Form..Caption("Circuit Board Defect Tracking")
+Gui.Form..Size(325,511)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..AlwaysOnTop(False)
+Gui.Form..FontName("Tahoma")
+Gui.Form..FontSize(8.25)
+Gui.Form..ControlBox(True)
+Gui.Form..MaxButton(True)
+Gui.Form..MinButton(True)
+Gui.Form..MousePointer(0)
+Gui.Form..Moveable(True)
+Gui.Form..Sizeable(True)
+Gui.Form..ShowInTaskBar(True)
+Gui.Form..TitleBar(True)
+Gui.Form..Event(UnLoad,Form_UnLoad)
+Gui.Form.dtp1.Create(DatePicker)
+Gui.Form.dtp1.Enabled(True)
+Gui.Form.dtp1.Visible(True)
+Gui.Form.dtp1.Zorder(0)
+Gui.Form.dtp1.Size(100,20)
+Gui.Form.dtp1.Position(5,20)
+Gui.Form.dtp1.CheckBox(False)
+Gui.Form.dtp1.FontName("Tahoma")
+Gui.Form.dtp1.FontSize(8.25)
+Gui.Form.lbl1.Create(Label,"Date of Defect",True,71,13,0,5,5,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl1.BorderStyle(0)
+Gui.Form.lbl2.Create(Label,"Component Long Part / Rev",True,133,13,0,5,85,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl2.BorderStyle(0)
+Gui.Form.txtLongPart.Create(TextBox,"",True,263,20,0,5,100,True,0,"Tahoma",8.25,,1)
+Gui.Form.cmdLongPartBrw.Create(Button)
+Gui.Form.cmdLongPartBrw.Enabled(True)
+Gui.Form.cmdLongPartBrw.Visible(True)
+Gui.Form.cmdLongPartBrw.Zorder(0)
+Gui.Form.cmdLongPartBrw.Size(26,23)
+Gui.Form.cmdLongPartBrw.Position(287,99)
+Gui.Form.cmdLongPartBrw.Caption("^")
+Gui.Form.cmdLongPartBrw.FontName("Tahoma")
+Gui.Form.cmdLongPartBrw.FontSize(8.25)
+Gui.Form.cmdLongPartBrw.Event(Click,cmdLongPartBrw_Click)
+Gui.Form.lbl3.Create(Label,"Serial Number",True,66,13,0,5,125,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl3.BorderStyle(0)
+Gui.Form.txtSerialNum.Create(TextBox,"",True,313,20,0,5,140,True,0,"Tahoma",8.25,,1)
+Gui.Form.lbl4.Create(Label,"Description",True,53,13,0,5,165,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl4.BorderStyle(0)
+Gui.Form.txtDescription.Create(TextBox,"",True,312,20,0,5,180,True,0,"Tahoma",8.25,,1)
+Gui.Form.lbl5.Create(Label,"Failure Code",True,60,13,0,5,205,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl5.BorderStyle(0)
+Gui.Form.lbl6.Create(Label,"Failure Description",True,88,13,0,120,206,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl6.BorderStyle(0)
+Gui.Form.ddlFailCode.Create(DropDownList)
+Gui.Form.ddlFailCode.Enabled(True)
+Gui.Form.ddlFailCode.Visible(True)
+Gui.Form.ddlFailCode.Zorder(0)
+Gui.Form.ddlFailCode.Size(110,20)
+Gui.Form.ddlFailCode.Position(5,220)
+Gui.Form.ddlFailCode.FontName("Tahoma")
+Gui.Form.ddlFailCode.FontSize(8.25)
+Gui.Form.ddlFailCode.Event(SelectedIndexChanged,ddlFailCode_SelectedIndexChanged)
+Gui.Form.txtFailDesc.Create(TextBox,"",True,195,20,0,120,220,True,0,"Tahoma",8.25,,1)
+Gui.Form.lbl7.Create(Label,"Reference Designator",True,105,13,0,5,245,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl7.BorderStyle(0)
+Gui.Form.ddlRefDesig.Create(DropDownList)
+Gui.Form.ddlRefDesig.Enabled(True)
+Gui.Form.ddlRefDesig.Visible(True)
+Gui.Form.ddlRefDesig.Zorder(0)
+Gui.Form.ddlRefDesig.Size(110,20)
+Gui.Form.ddlRefDesig.Position(5,260)
+Gui.Form.ddlRefDesig.FontName("Tahoma")
+Gui.Form.ddlRefDesig.FontSize(8.25)
+Gui.Form.lbl8.Create(Label,"PCB Date Code",True,73,13,0,120,246,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl8.BorderStyle(0)
+Gui.Form.txtBBDC.Create(TextBox,"",True,199,20,0,120,260,True,0,"Tahoma",8.25,,1)
+Gui.Form.lbl9.Create(Label,"Sales Order",True,56,13,0,5,285,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl9.BorderStyle(0)
+Gui.Form.txtSalesOrder.Create(TextBox,"",True,109,20,0,5,300,True,0,"Tahoma",8.25,,1)
+Gui.Form.cmdOrderBrw.Create(Button)
+Gui.Form.cmdOrderBrw.Enabled(True)
+Gui.Form.cmdOrderBrw.Visible(True)
+Gui.Form.cmdOrderBrw.Zorder(0)
+Gui.Form.cmdOrderBrw.Size(26,23)
+Gui.Form.cmdOrderBrw.Position(119,298)
+Gui.Form.cmdOrderBrw.Caption("^")
+Gui.Form.cmdOrderBrw.FontName("Tahoma")
+Gui.Form.cmdOrderBrw.FontSize(8.25)
+Gui.Form.cmdOrderBrw.Event(Click,cmdOrderBrw_Click)
+Gui.Form.lbl10.Create(Label,"User",True,22,13,0,117,5,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl10.BorderStyle(0)
+Gui.Form.txtUser.Create(TextBox,"",True,150,20,0,117,20,True,0,"Tahoma",8.25,,1)
+Gui.Form.cmdSave.Create(Button)
+Gui.Form.cmdSave.Enabled(True)
+Gui.Form.cmdSave.Visible(True)
+Gui.Form.cmdSave.Zorder(0)
+Gui.Form.cmdSave.Size(75,23)
+Gui.Form.cmdSave.Position(40,448)
+Gui.Form.cmdSave.Caption("Save")
+Gui.Form.cmdSave.FontName("Tahoma")
+Gui.Form.cmdSave.FontSize(8.25)
+Gui.Form.cmdSave.Event(Click,cmdSave_Click)
+Gui.Form.cmdClear.Create(Button)
+Gui.Form.cmdClear.Enabled(True)
+Gui.Form.cmdClear.Visible(True)
+Gui.Form.cmdClear.Zorder(0)
+Gui.Form.cmdClear.Size(75,23)
+Gui.Form.cmdClear.Position(200,450)
+Gui.Form.cmdClear.Caption("Clear")
+Gui.Form.cmdClear.FontName("Tahoma")
+Gui.Form.cmdClear.FontSize(8.25)
+Gui.Form.cmdClear.Event(Click,cmdClear_Click)
+Gui.Form.lbl11.Create(Label,"BOM Parent",True,57,13,0,5,45,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl11.BorderStyle(0)
+Gui.Form.txtParent.Create(TextBox,"",True,263,20,0,5,60,True,0,"Tahoma",8.25,,1)
+Gui.Form.cmdBomBrw.Create(Button)
+Gui.Form.cmdBomBrw.Enabled(True)
+Gui.Form.cmdBomBrw.Visible(True)
+Gui.Form.cmdBomBrw.Zorder(0)
+Gui.Form.cmdBomBrw.Size(26,23)
+Gui.Form.cmdBomBrw.Position(287,58)
+Gui.Form.cmdBomBrw.Caption("^")
+Gui.Form.cmdBomBrw.FontName("Tahoma")
+Gui.Form.cmdBomBrw.FontSize(8.25)
+Gui.Form.cmdBomBrw.Event(Click,cmdBomBrw_Click)
+Gui.Form.lbl12.Create(Label,"Attachment",True,56,13,0,5,404,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl12.BorderStyle(0)
+Gui.Form.txtAttachment.Create(TextBox,"",True,270,20,0,5,421,True,0,"Tahoma",8.25,,1)
+Gui.Form.cmdAttachmentBrw.Create(Button)
+Gui.Form.cmdAttachmentBrw.Enabled(True)
+Gui.Form.cmdAttachmentBrw.Visible(True)
+Gui.Form.cmdAttachmentBrw.Zorder(0)
+Gui.Form.cmdAttachmentBrw.Size(26,23)
+Gui.Form.cmdAttachmentBrw.Position(286,418)
+Gui.Form.cmdAttachmentBrw.Caption("^")
+Gui.Form.cmdAttachmentBrw.FontName("Tahoma")
+Gui.Form.cmdAttachmentBrw.FontSize(8.25)
+Gui.Form.cmdAttachmentBrw.Event(Click,cmdAttachmentBrw_Click)
+Gui.Form.lbl13.Create(Label,"Invoice",True,35,13,0,5,325,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl13.BorderStyle(0)
+Gui.Form.txtInvoice.Create(TextBox,"",True,105,20,0,5,340,True,0,"Tahoma",8.25,,1)
+Gui.Form.cmdInvBrw.Create(Button)
+Gui.Form.cmdInvBrw.Enabled(True)
+Gui.Form.cmdInvBrw.Visible(True)
+Gui.Form.cmdInvBrw.Zorder(0)
+Gui.Form.cmdInvBrw.Size(26,23)
+Gui.Form.cmdInvBrw.Position(180,338)
+Gui.Form.cmdInvBrw.Caption("^")
+Gui.Form.cmdInvBrw.FontName("Tahoma")
+Gui.Form.cmdInvBrw.FontSize(8.25)
+Gui.Form.cmdInvBrw.Event(Click,cmdCmBrw_Click)
+Gui.Form.lbl14.Create(Label,"Line",True,19,13,0,120,325,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl14.BorderStyle(0)
+Gui.Form.txtLine.Create(TextBox,"",True,54,20,0,120,340,True,0,"Tahoma",8.25,,1)
+Gui.Form.lbl15.Create(Label,"RMA",True,22,13,0,5,365,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl15.BorderStyle(0)
+Gui.Form.txtRMA.Create(TextBox,"",True,104,20,0,5,380,True,0,"Tahoma",8.25,,1)
+Gui.Form.cmdRMABrw.Create(Button)
+Gui.Form.cmdRMABrw.Enabled(True)
+Gui.Form.cmdRMABrw.Visible(True)
+Gui.Form.cmdRMABrw.Zorder(0)
+Gui.Form.cmdRMABrw.Size(26,23)
+Gui.Form.cmdRMABrw.Position(180,379)
+Gui.Form.cmdRMABrw.Caption("^")
+Gui.Form.cmdRMABrw.FontName("Tahoma")
+Gui.Form.cmdRMABrw.FontSize(8.25)
+Gui.Form.cmdRMABrw.Event(Click,cmdRMABrw_Click)
+Gui.Form.txtRMALine.Create(TextBox,"",True,54,20,0,120,380,True,0,"Tahoma",8.25,,1)
+Gui.Form.lbl16.Create(Label,"Line",True,19,13,0,120,365,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl16.BorderStyle(0)
+Gui.Form.cmdEmpBrw.Create(Button)
+Gui.Form.cmdEmpBrw.Enabled(True)
+Gui.Form.cmdEmpBrw.Visible(True)
+Gui.Form.cmdEmpBrw.Zorder(0)
+Gui.Form.cmdEmpBrw.Size(26,23)
+Gui.Form.cmdEmpBrw.Position(287,18)
+Gui.Form.cmdEmpBrw.Caption("^")
+Gui.Form.cmdEmpBrw.FontName("Tahoma")
+Gui.Form.cmdEmpBrw.FontSize(8.25)
+Gui.Form.cmdEmpBrw.Event(Click,cmdEmpBrw_Click)
+Gui.Form.lbl17.Create(Label,"Customer",True,46,13,0,150,285,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl17.BorderStyle(0)
+Gui.Form.txtCust.Create(TextBox,"",True,103,20,0,150,300,True,0,"Tahoma",8.25,,1)
+Gui.Form.cmdCustBrw.Create(Button)
+Gui.Form.cmdCustBrw.Enabled(True)
+Gui.Form.cmdCustBrw.Visible(True)
+Gui.Form.cmdCustBrw.Zorder(0)
+Gui.Form.cmdCustBrw.Size(26,23)
+Gui.Form.cmdCustBrw.Position(257,298)
+Gui.Form.cmdCustBrw.Caption("^")
+Gui.Form.cmdCustBrw.FontName("Tahoma")
+Gui.Form.cmdCustBrw.FontSize(8.25)
+Gui.Form.cmdCustBrw.Event(Click,cmdCustBrw_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global.sPart.Declare
+Program.Sub.Preflight.End
+Program.Sub.Main.Start
+Function.Intrinsic.UI.UsePixels ' Allows you to use Pixels instead of Twips throughout
+f.Intrinsic.Control.CallSub(addFailCodes)
+gui.Form..Show
+Program.Sub.Main.End
+
+Program.Sub.Form_UnLoad.Start
+	f.Intrinsic.Control.End
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.cmdBomBrw_Click.Start
+v.Local.sRet.Declare
+f.Intrinsic.Control.Try
+	'Call Browser
+	f.Intrinsic.UI.Browser(3000, , v.Local.sRet)
+	'Check if it is a valid selection.
+	f.Intrinsic.Control.If(v.Local.sRet.Trim, =, "***CANCEL***")
+	f.Intrinsic.Control.Else
+		'Split selection.
+		f.Intrinsic.String.Split(v.Local.sRet.Trim, "*!*", v.Local.sRet)
+		'Set Value to Text.
+		gui.Form.txtParent.Text(v.Local.sRet(0))
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdBomBrw_Click.End
+
+Program.Sub.cmdLongPartBrw_Click.Start
+v.Local.sRet.Declare
+v.Local.sBomParent.Declare
+v.Local.sSQL.Declare
+
+v.Local.sParts.Declare
+v.Local.sPart.Declare
+f.Intrinsic.Control.Try
+	'Call Browser
+	v.Local.sBomParent.Set(v.Screen.Form!txtParent.Text)
+	f.Intrinsic.String.RPad(v.Local.sBomParent.Trim, " ", 20, v.Local.sBomParent)
+	
+	
+	f.Intrinsic.Control.If(v.Local.sBomParent, <>, "")
+		f.Global.Callwrapper.New("Test","Manufacturing.BOM.CostBuildup")
+		f.Global.Callwrapper.SetProperty("Test","Program","      ")
+		f.Global.Callwrapper.SetProperty("Test","Parent",v.Local.sBomParent)
+		f.Global.Callwrapper.SetProperty("Test","Flags","2")
+		f.Global.Callwrapper.Run("Test")
+		
+		f.ODBC.Connection!con.OpenCompanyConnection
+			'Get Part List String.
+			f.Intrinsic.String.Build("select Distinct Part from v_bi_bom_buildup_e where  isnull(level, '')  <> '' and TRMNL = '{0}'", v.Caller.Terminal, v.Local.sSQL)
+			f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL, v.Local.sParts)
+			f.Intrinsic.String.Replace(v.Local.sParts, "#$#", "','", v.Local.sParts)
+			
+			f.Intrinsic.String.Build("Select A.Part, B.Display_Part, B.Display_Rev, A.Description from V_INVENTORY_MSTR A Left Join INV_LXR B on A.Part = B.Gss_Part where A.Part in ('{0}')", v.Local.sParts, v.Local.sSQL)
+		f.ODBC.Connection!con.Close
+	f.Intrinsic.Control.EndIf
+	
+	
+	
+	'f.Intrinsic.String.Build("Select Gss_Part, Display_Part, Display_rev from INV_LXR where Gss_Part in (Select Distinct Part from BOM_MSTR where Parent = '{0}')", v.Local.sBomParent, v.Local.sSQL)
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Intrinsic.UI.Browser("Long Part Browser", "con", v.Local.sSQL, "Part*!*Long Part*!*Long Rev*!*Description", "150*!*200*!*100*!*300", v.Local.sRet)
+	f.ODBC.Connection!con.Close
+	
+	'Check if it is a valid selection.
+	f.Intrinsic.Control.If(v.Local.sRet.Trim, =, "***CANCEL***")
+	f.Intrinsic.Control.Else
+		'Split selection.
+		f.Intrinsic.String.Split(v.Local.sRet.Trim, "*!*", v.Local.sRet)
+		f.Intrinsic.String.RPad(v.Local.sRet(1).Trim, " ", 50, v.Local.sRet(1))
+		f.Intrinsic.String.RPad(v.Local.sRet(2).Trim, " ", 10, v.Local.sRet(2))
+		f.Intrinsic.String.Build("{0}{1}", v.Local.sRet(1), v.Local.sRet(2), v.Local.sPart)
+		'Set Value to Text.
+		v.Global.sPart.Set(v.Local.sRet(0))
+		gui.Form.txtLongPart.Text(v.Local.sPart)
+		f.Intrinsic.Control.CallSub(addRef)
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdLongPartBrw_Click.End
+
+Program.Sub.cmdOrderBrw_Click.Start
+v.Local.sRet.Declare
+f.Intrinsic.Control.Try
+	'Call Browser
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Intrinsic.UI.Browser("Sales Order Browser", "con", "Select Order_No, Customer, Date_Order, Date_Due, Customer_Po from V_ORDER_HEADER", "Order*!*Customer*!*Date Order*!*Date Due*!*PO", "100*!*100*!*100*!*100*!*200", v.Local.sRet)
+	f.ODBC.Connection!con.Close
+	
+	'Check if it is a valid selection.
+	f.Intrinsic.Control.If(v.Local.sRet.Trim, =, "***CANCEL***")
+	f.Intrinsic.Control.Else
+		'Split selection.
+		f.Intrinsic.String.Split(v.Local.sRet.Trim, "*!*", v.Local.sRet)
+		'Set Value to Text.
+		gui.Form.txtSalesOrder.Text(v.Local.sRet(0))
+		gui.Form.txtCust.Text(v.Local.sRet(1))
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdOrderBrw_Click.End
+
+Program.Sub.cmdAttachmentBrw_Click.Start
+v.Local.sRet.Declare
+f.Intrinsic.Control.Try
+	f.Intrinsic.UI.ShowOpenFileDialog("", "", v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet.Trim, =, "***CANCEL***")
+	f.Intrinsic.Control.Else
+		gui.Form.txtAttachment.Text(v.Local.sRet)
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdAttachmentBrw_Click.End
+
+Program.Sub.cmdSave_Click.Start
+v.Local.dDefect.Declare
+v.Local.sUser.Declare
+v.Local.sBom.Declare
+v.Local.sLongPart.Declare
+v.Local.sPart.Declare
+v.Local.sSerialNumber.Declare
+v.Local.sDesc.Declare
+v.Local.sFailureCode.Declare
+v.Local.sFailureDesc.Declare
+v.Local.sRefDesg.Declare
+v.Local.sBBDC.Declare
+v.Local.sSalesOrder.Declare
+v.Local.sAttachment.Declare
+
+v.Local.sInvoice.Declare
+v.Local.sInvoiceLine.Declare
+v.Local.sRMA.Declare
+v.Local.sRMALine.Declare
+
+v.Local.sSQL.Declare
+f.Intrinsic.Control.Try
+	'Load variables with screens
+	v.Local.dDefect.Set(v.Screen.Form!dtp1.Value)
+	v.Local.sUser.Set(v.Screen.Form!txtUser.Text)
+	v.Local.sBom.Set(v.Screen.Form!txtParent.Text)
+	v.Local.sLongPart.Set(v.Screen.Form!txtLongPart.Text)
+	v.Local.sPart.Set(v.Global.sPart)
+	v.Local.sSerialNumber.Set(v.Screen.Form!txtSerialNum.Text)
+	v.Local.sDesc.Set(v.Screen.Form!txtDescription.Text)
+	v.Local.sFailureCode.Set(v.Screen.Form!ddlFailCode.Value)
+	v.Local.sFailureDesc.Set(v.Screen.Form!txtFailDesc.Text)
+	v.Local.sRefDesg.Set(v.Screen.Form!ddlRefDesig.Value)
+	v.Local.sBBDC.Set(v.Screen.Form!txtBBDC.Text)
+	v.Local.sSalesOrder.Set(v.Screen.Form!txtSalesOrder.Text)
+	v.Local.sAttachment.Set(v.Screen.Form!txtAttachment.Text)
+	
+	v.Local.sInvoice.Set(v.Screen.Form!txtInvoice.Text)
+	v.Local.sInvoiceLine.Set(v.Screen.Form!txtLine.Text)
+	v.Local.sRMA.Set(v.Screen.Form!txtRMA.Text)
+	v.Local.sRMALine.Set(v.Screen.Form!txtRMALine.Text)
+	
+	f.Intrinsic.String.RPad(v.Local.sBom.Trim, " ", 20, v.Local.sBom)
+	f.Intrinsic.String.RPad(v.Local.sLongPart.Trim, " ", 50, v.Local.sLongPart)
+	f.Intrinsic.String.RPad(v.Local.sSerialNumber.Trim, " ", 20, v.Local.sSerialNumber)
+	f.Intrinsic.String.RPad(v.Local.sFailureCode.Trim, " ", 50, v.Local.sFailureCode)
+	f.Intrinsic.String.RPad(v.Local.sRefDesg.Trim, " ", 50, v.Local.sRefDesg)
+	f.Intrinsic.String.RPad(v.Local.sBBDC.Trim, " ", 50, v.Local.sBBDC)
+	f.Intrinsic.String.RPad(v.Local.sSalesOrder.Trim, " ", 7, v.Local.sSalesOrder)
+	f.Intrinsic.String.RPad(v.Local.sUser.Trim, " ", 9, v.Local.sUser)
+	f.Intrinsic.String.RPad(v.Local.sAttachment.Trim, " ", 200, v.Local.sAttachment)
+	f.Intrinsic.String.RPad(v.Local.sPart.Trim, " ", 20, v.Local.sPart)
+	f.Intrinsic.String.LPad(v.Local.sInvoice.Trim, "0", 7, v.Local.sInvoice)
+	f.Intrinsic.String.LPad(v.Local.sInvoiceLine.Trim, "0", 4, v.Local.sInvoiceLine)
+	f.Intrinsic.String.LPad(v.Local.sRMA.Trim, "0", 7, v.Local.sRMA)
+	f.Intrinsic.String.LPad(v.Local.sRMALine.Trim, "0", 6, v.Local.sRMALine)
+	
+	f.Intrinsic.String.Build("Insert into  GCG_6045_CB_FAILS (DefectDate, BOMParent, LongPart, Serial_Number, Failure_Code, Reference_Designator, Bare_Board_Date_Code, Sales_Order, User_name, ImageLocation, Part, CompleteFlg, Invoice, Invoice_Line, RMA, RMA_Line) Values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '0', '{11}', '{12}', '{13}', '{14}')", v.Local.dDefect.PervasiveDate, v.Local.sBom, v.Local.sLongPart, v.Local.sSerialNumber, v.Local.sFailureCode, v.Local.sRefDesg, v.Local.sBBDC, v.Local.sSalesOrder, v.Local.sUser, v.Local.sAttachment, v.Local.sPart, v.Local.sInvoice, v.Local.sInvoiceLine, v.Local.sRMA, v.Local.sRMALine, v.Local.sSQL)
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.ODBC.Connection!con.Execute(v.Local.sSQL)
+	f.ODBC.Connection!con.Close
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdSave_Click.End
+
+Program.Sub.cmdClear_Click.Start
+f.Intrinsic.Control.Try
+'Try something
+	gui.Form.txtAttachment.Text("")
+	gui.Form.txtBBDC.Text("")
+	gui.Form.txtDescription.Text("")
+	gui.Form.txtFailDesc.Text("")
+	gui.Form.txtLongPart.Text("")
+	gui.Form.txtParent.Text("")
+	gui.Form.txtSalesOrder.Text("")
+	gui.Form.txtSerialNum.Text("")
+	gui.Form.txtUser.Text("")
+	
+	gui.Form.ddlFailCode.Text("")
+	gui.Form.ddlRefDesig.Text("")
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdClear_Click.End
+
+Program.Sub.addFailCodes.Start
+f.Intrinsic.Control.Try
+	gui.Form.ddlFailCode.ClearItems
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Data.Dictionary.CreateFromSQL("failCodeDict", "con", "Select FailureCode, FailureCode from GCG_6045_FAILCODE")
+	f.ODBC.Connection!con.Close
+	gui.Form.ddlFailCode.AddItems("Dictionary", "failCodeDict")
+	f.Data.Dictionary.Close("failCodeDict")
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.addFailCodes.End
+
+Program.Sub.ddlFailCode_SelectedIndexChanged.Start
+v.Local.sFailCode.Declare
+v.Local.sSQL.Declare
+v.Local.sDesc.Declare
+f.Intrinsic.Control.Try
+	v.Local.sFailCode.Set(v.Screen.Form!ddlFailCode.Text)
+	f.Intrinsic.String.Build("Select Code_Desc from GCG_6045_FAILCODE where Rtrim(FailureCode) = '{0}'", v.Local.sFailCode.Trim, v.Local.sSQL)
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL, v.Local.sDesc)
+		gui.Form.txtFailDesc.Text(v.Local.sDesc)
+	f.ODBC.Connection!con.Close
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.ddlFailCode_SelectedIndexChanged.End
+
+Program.Sub.addRef.Start
+v.Local.sBomParent.Declare
+v.Local.sSQL.Declare
+
+f.Intrinsic.Control.Try
+	v.Local.sBomParent.Set(v.Screen.Form!txtParent.Text)
+	f.Intrinsic.String.RPad(v.Local.sBomParent.Trim, " ", 20, v.Local.sBomParent)
+	f.Intrinsic.String.RPad(v.Global.sPart.Trim, " ", 20, v.Global.sPart)
+	
+	f.Intrinsic.String.Build("Select Ref_Desig, Ref_Desig from GCG_6045_REF_DESG where BomParent = '{0}' and Part = '{1}'", v.Local.sBomParent, v.Global.sPart, v.Local.sSQL)
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Data.Dictionary.CreateFromSQL("refDesigDict", "con", v.Local.sSQL)
+	f.ODBC.Connection!con.Close
+	
+	gui.Form.ddlRefDesig.AddItems("Dictionary", "refDesigDict")
+	f.Data.Dictionary.Close("refDesigDict")
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.addRef.End
+
+Program.Sub.ErrorMsg.Start
+v.Local.sError.Declare
+
+'Closes ODBC connection, default to connection : "con"
+f.Intrinsic.Control.If(v.ODBC!con.State, =, 1)
+	f.ODBC.Connection!con.Close
+f.Intrinsic.Control.EndIf
+
+'Generic Error message.
+f.Intrinsic.String.Build("Project ProjectName.g2u {0}{0}Subroutine: {1}{0}Error: {2} with Description: {3}", v.Ambient.NewLine, v.Args.CurrentSub, v.Ambient.ErrorNumber, v.Ambient.ErrorDescription, v.Local.sError)
+f.Intrinsic.UI.Msgbox(v.Local.sError)
+Program.Sub.ErrorMsg.End
+
+Program.Sub.cmdCmBrw_Click.Start
+v.Local.sRet.Declare
+f.Intrinsic.Control.Try
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Intrinsic.UI.Browser("Invoice", "con", "Select Invoice, Order_No, Order_Suffix, Order_Line, Customer, Name_Cust_Ship from V_ORDER_HIST_LINE", "Invoice*!*Order No*!*Suffix*!*Line No*!*Customer*!*Customer Name", "60*!*60*!*40*!*40*!*80*!*120", v.Local.sRet)
+	f.ODBC.Connection!con.Close
+	
+	f.Intrinsic.Control.If(v.Local.sRet.Trim, <>, "***CANCEL***")
+		f.Intrinsic.String.Split(v.Local.sRet, "*!*", v.Local.sRet)
+		gui.Form.txtInvoice.Text(v.Local.sRet(0))
+		gui.Form.txtLine.Text(v.Local.sRet(3))
+		gui.Form.txtCust.Text(v.Local.sRet(4))
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdCmBrw_Click.End
+
+Program.Sub.cmdRMABrw_Click.Start
+v.Local.sRet.Declare
+f.Intrinsic.Control.Try
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Intrinsic.UI.Browser("RMA", "con", "Select RMA_ID, Order_No, RMA_Line, Part, Part_Description, Qty_Shipped, Qty_Returned, Qty_Received, Date_Received from V_RMA_LINES", "RMA*!*Order No*!*RMA Line*!*Part*!*Description*!*Qty Shipped*!*Qty Returned*!*Qty Received*!*Date Received", "60*!*60*!*40*!*80*!*120*!*60*!*60*!*60*!*80", v.Local.sRet)
+	f.ODBC.Connection!con.Close
+	
+	f.Intrinsic.Control.If(v.Local.sRet.Trim, <>, "***CANCEL***")
+		f.Intrinsic.String.Split(v.Local.sRet, "*!*", v.Local.sRet)
+		gui.Form.txtRMA.Text(v.Local.sRet(0))
+		gui.Form.txtRMALine.Text(v.Local.sRet(2))
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdRMABrw_Click.End
+
+Program.Sub.cmdCustBrw_Click.Start
+v.Local.sRet.Declare
+f.Intrinsic.Control.Try
+	f.Intrinsic.UI.Browser(205, , v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet, <>, "***CANCEL***")
+		f.Intrinsic.String.Split(v.Local.sRet, "*!*", v.Local.sRet)
+		gui.Form.txtCust.Text(v.Local.sRet(0))
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdCustBrw_Click.End
+
+Program.Sub.cmdEmpBrw_Click.Start
+Program.Sub.cmdEmpBrw_Click.End
+
+Program.Sub.Comments.Start
+${$5$}$3.0.0.0$}$1
+${$6$}$Angel$}$20220308100019728$}$KXl0r/FkrMYwb/r4ukQ87aOTsTN7X2eaGOjvB8NELQ0VCmJOj21ap9HQQ8A89GDt/xqpy+Xln0Y=
+Program.Sub.Comments.End
