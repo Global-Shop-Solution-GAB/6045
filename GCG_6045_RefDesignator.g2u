@@ -1,0 +1,526 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.Form..Create(BaseForm)
+Gui.Form..Caption("Reference Designators Maintenance")
+Gui.Form..Size(580,720)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..AlwaysOnTop(False)
+Gui.Form..FontName("Tahoma")
+Gui.Form..FontSize(8.25)
+Gui.Form..ControlBox(True)
+Gui.Form..MaxButton(True)
+Gui.Form..MinButton(True)
+Gui.Form..MousePointer(0)
+Gui.Form..Moveable(True)
+Gui.Form..Sizeable(True)
+Gui.Form..ShowInTaskBar(True)
+Gui.Form..TitleBar(True)
+Gui.Form..Event(UnLoad,Form_UnLoad)
+Gui.Form.frame1.Create(Frame)
+Gui.Form.frame1.Enabled(True)
+Gui.Form.frame1.Visible(True)
+Gui.Form.frame1.Zorder(0)
+Gui.Form.frame1.Size(160,45)
+Gui.Form.frame1.Position(6,5)
+Gui.Form.frame1.Caption("")
+Gui.Form.frame1.FontName("Tahoma")
+Gui.Form.frame1.FontSize(8.25)
+Gui.Form.lbl1.Create(Label,"BOM Parent",True,57,13,0,5,5,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl1.BorderStyle(0)
+Gui.Form.lbl1.Parent("frame1")
+Gui.Form.cmdLoadBom.Create(Button)
+Gui.Form.cmdLoadBom.Enabled(True)
+Gui.Form.cmdLoadBom.Visible(True)
+Gui.Form.cmdLoadBom.Zorder(0)
+Gui.Form.cmdLoadBom.Size(31,23)
+Gui.Form.cmdLoadBom.Position(125,18)
+Gui.Form.cmdLoadBom.Caption("^")
+Gui.Form.cmdLoadBom.FontName("Tahoma")
+Gui.Form.cmdLoadBom.FontSize(8.25)
+Gui.Form.cmdLoadBom.Parent("frame1")
+Gui.Form.cmdLoadBom.Event(Click,cmdLoadBom_Click)
+Gui.Form.txtParent.Create(TextBox,"",True,117,20,0,5,20,True,0,"Tahoma",8.25,,1)
+Gui.Form.txtParent.Parent("frame1")
+Gui.Form.GsGcDisplay.Create(GsGridControl)
+Gui.Form.GsGcDisplay.Enabled(True)
+Gui.Form.GsGcDisplay.Visible(True)
+Gui.Form.GsGcDisplay.Zorder(0)
+Gui.Form.GsGcDisplay.Size(566,573)
+Gui.Form.GsGcDisplay.Position(8,108)
+Gui.Form.GsGcDisplay.Anchor(15)
+Gui.Form.frame2.Create(Frame)
+Gui.Form.frame2.Enabled(True)
+Gui.Form.frame2.Visible(True)
+Gui.Form.frame2.Zorder(0)
+Gui.Form.frame2.Size(384,45)
+Gui.Form.frame2.Position(7,56)
+Gui.Form.frame2.Caption("")
+Gui.Form.frame2.FontName("Tahoma")
+Gui.Form.frame2.FontSize(8.25)
+Gui.Form.lbl2.Create(Label,"Upload",True,33,13,0,5,5,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl2.BorderStyle(0)
+Gui.Form.lbl2.Parent("frame2")
+Gui.Form.txtFilePath.Create(TextBox,"",True,272,20,0,5,20,True,0,"Tahoma",8.25,,1)
+Gui.Form.txtFilePath.Parent("frame2")
+Gui.Form.cmdFileBrw.Create(Button)
+Gui.Form.cmdFileBrw.Enabled(True)
+Gui.Form.cmdFileBrw.Visible(True)
+Gui.Form.cmdFileBrw.Zorder(0)
+Gui.Form.cmdFileBrw.Size(31,23)
+Gui.Form.cmdFileBrw.Position(280,18)
+Gui.Form.cmdFileBrw.Caption("^")
+Gui.Form.cmdFileBrw.FontName("Tahoma")
+Gui.Form.cmdFileBrw.FontSize(8.25)
+Gui.Form.cmdFileBrw.Parent("frame2")
+Gui.Form.cmdFileBrw.Event(Click,cmdFileBrw_Click)
+Gui.Form.cmdUpload.Create(Button)
+Gui.Form.cmdUpload.Enabled(True)
+Gui.Form.cmdUpload.Visible(True)
+Gui.Form.cmdUpload.Zorder(0)
+Gui.Form.cmdUpload.Size(65,23)
+Gui.Form.cmdUpload.Position(316,18)
+Gui.Form.cmdUpload.Caption("Upload")
+Gui.Form.cmdUpload.FontName("Tahoma")
+Gui.Form.cmdUpload.FontSize(8.25)
+Gui.Form.cmdUpload.Parent("frame2")
+Gui.Form.cmdUpload.Event(Click,cmdUpload_Click)
+Gui.Form.cmdDelete.Create(Button)
+Gui.Form.cmdDelete.Enabled(True)
+Gui.Form.cmdDelete.Visible(True)
+Gui.Form.cmdDelete.Zorder(0)
+Gui.Form.cmdDelete.Size(75,23)
+Gui.Form.cmdDelete.Position(414,66)
+Gui.Form.cmdDelete.Caption("Delete")
+Gui.Form.cmdDelete.FontName("Tahoma")
+Gui.Form.cmdDelete.FontSize(8.25)
+Gui.Form.cmdDelete.Event(Click,cmdDelete_Click)
+Gui.Form.cmdDelete.Anchor(9)
+Gui.Form.cmdSave.Create(Button)
+Gui.Form.cmdSave.Enabled(True)
+Gui.Form.cmdSave.Visible(True)
+Gui.Form.cmdSave.Zorder(0)
+Gui.Form.cmdSave.Size(75,23)
+Gui.Form.cmdSave.Position(493,66)
+Gui.Form.cmdSave.Caption("Save")
+Gui.Form.cmdSave.FontName("Tahoma")
+Gui.Form.cmdSave.FontSize(8.25)
+Gui.Form.cmdSave.Event(Click,cmdSave_Click)
+Gui.Form.cmdSave.Anchor(9)
+Gui.Form.frame3.Create(Frame)
+Gui.Form.frame3.Enabled(True)
+Gui.Form.frame3.Visible(True)
+Gui.Form.frame3.Zorder(0)
+Gui.Form.frame3.Size(404,45)
+Gui.Form.frame3.Position(173,5)
+Gui.Form.frame3.Caption("")
+Gui.Form.frame3.FontName("Tahoma")
+Gui.Form.frame3.FontSize(8.25)
+Gui.Form.lbl3.Create(Label,"Long Part",True,46,13,0,5,5,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl3.BorderStyle(0)
+Gui.Form.lbl3.Parent("frame3")
+Gui.Form.txtLongPart.Create(TextBox,"",True,117,20,0,5,20,True,0,"Tahoma",8.25,,1)
+Gui.Form.txtLongPart.Parent("frame3")
+Gui.Form.cmdLongPartBrw.Create(Button)
+Gui.Form.cmdLongPartBrw.Enabled(True)
+Gui.Form.cmdLongPartBrw.Visible(True)
+Gui.Form.cmdLongPartBrw.Zorder(0)
+Gui.Form.cmdLongPartBrw.Size(31,23)
+Gui.Form.cmdLongPartBrw.Position(126,18)
+Gui.Form.cmdLongPartBrw.Caption("^")
+Gui.Form.cmdLongPartBrw.FontName("Tahoma")
+Gui.Form.cmdLongPartBrw.FontSize(8.25)
+Gui.Form.cmdLongPartBrw.Parent("frame3")
+Gui.Form.cmdLongPartBrw.Event(Click,cmdLongPartBrw_Click)
+Gui.Form.cmdAdd.Create(Button)
+Gui.Form.cmdAdd.Enabled(True)
+Gui.Form.cmdAdd.Visible(True)
+Gui.Form.cmdAdd.Zorder(0)
+Gui.Form.cmdAdd.Size(60,23)
+Gui.Form.cmdAdd.Position(338,17)
+Gui.Form.cmdAdd.Caption("Add")
+Gui.Form.cmdAdd.FontName("Tahoma")
+Gui.Form.cmdAdd.FontSize(8.25)
+Gui.Form.cmdAdd.Parent("frame3")
+Gui.Form.cmdAdd.Event(Click,cmdAdd_Click)
+Gui.Form.txtRefDesg.Create(TextBox,"",True,111,20,0,161,19,True,0,"Tahoma",8.25,,1)
+Gui.Form.txtRefDesg.Parent("frame3")
+Gui.Form.lbl4.Create(Label,"Reference Designator",True,105,13,0,161,4,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl4.BorderStyle(0)
+Gui.Form.lbl4.Parent("frame3")
+Gui.Form.chkBlank.Create(CheckBox)
+Gui.Form.chkBlank.Enabled(True)
+Gui.Form.chkBlank.Visible(True)
+Gui.Form.chkBlank.Zorder(0)
+Gui.Form.chkBlank.Size(56,20)
+Gui.Form.chkBlank.Position(450,24)
+Gui.Form.chkBlank.Caption("Blank")
+Gui.Form.chkBlank.FontName("Tahoma")
+Gui.Form.chkBlank.FontSize(8.25)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global.sPart.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+	Function.Intrinsic.UI.UsePixels ' Allows you to use Pixels instead of Twips throughout
+	f.Intrinsic.Control.CallSub(createDisplayDT)
+	f.Intrinsic.Control.CallSub(loadGridProperties)
+gui.Form..Show
+Program.Sub.Main.End
+
+Program.Sub.cmdSave_Click.Start
+f.Intrinsic.Control.Try
+	f.Data.Datatable.AcceptChanges("displayDT")
+	f.Data.DataView.ToDataTable("displayDT", "displayDV", "tmpSaveDT")
+	f.Data.Datatable.RemoveColumn("tmpSaveDT", "SelectCol")
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Data.Datatable.SaveToDB("tmpSaveDT", "con", "GCG_6045_REF_DESG", "ID_Key", 256, "BomParent@!@BomParent*!*Part@!@Part*!*LongPart@!@LongPart*!*Ref_Desig@!@Ref_Desig*!*ID_Key@!@ID_Key")
+	f.ODBC.Connection!con.Close
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdSave_Click.End
+
+Program.Sub.cmdDelete_Click.Start
+v.Local.iCnt.Declare
+v.Local.iKey.Declare
+v.Local.sSQL.Declare
+v.Local.bSelected.Declare
+f.Intrinsic.Control.Try
+	f.Data.Datatable.AcceptChanges("displayDT")
+	f.Intrinsic.Control.For(v.Local.iCnt, 0, v.DataTable.displayDT.RowCount--, 1)
+		v.Local.bSelected.Set(v.DataTable.displayDT(v.Local.iCnt).SelectCol!FieldVal)
+		f.Intrinsic.Control.If(v.Local.bSelected)
+			v.Local.iKey.Set(v.DataTable.displayDT(v.Local.iCnt).ID_Key!FieldVal)
+			f.Intrinsic.String.Build("Delete From GCG_6045_REF_DESG Where ID_Key = '{0}'", v.Local.iKey, v.Local.sSQL)
+			f.ODBC.Connection!con.OpenCompanyConnection
+				f.ODBC.Connection!con.Execute(v.Local.sSQL)
+			f.ODBC.Connection!con.Close
+			f.Data.Datatable.DeleteRow("displayDT", v.Local.iCnt)
+			f.Data.Datatable.AcceptChanges("displayDT")
+			f.Intrinsic.Math.Sub(v.Local.iCnt, 1, v.Local.iCnt)
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdDelete_Click.End
+
+Program.Sub.cmdUpload_Click.Start
+v.Local.sFilePath.Declare
+v.Local.sParent.Declare
+v.Local.sPart.Declare
+v.Local.sLongPart.Declare
+v.Local.sRef.Declare
+v.Local.sText.Declare
+v.Local.sSQL.Declare
+v.Local.bExists.Declare
+v.Local.iCnt.Declare
+f.Intrinsic.Control.Try
+'Try something
+	'Get File Path
+	v.Local.sFilePath.Set(v.Screen.Form!txtFilePath.Text)
+	'Check if empty
+	f.Intrinsic.Control.If(v.Local.sFilePath.Trim, =, "")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	'Check File Exists
+	f.Intrinsic.File.Exists(v.Local.sFilePath.Trim, v.Local.bExists)
+	f.Intrinsic.Control.If(v.Local.bExists.Not)
+		f.Intrinsic.UI.Msgbox("The selected file does not exists.")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	'Get txt fron File Path
+	f.Intrinsic.File.File2String(v.Local.sFilePath, v.Local.sText)
+	f.Data.Datatable.CreateFromString("uploadDT", v.Local.sText, "BomParent*!*Part*!*LongPart*!*Ref_Desig", "String*!*String*!*String*!*String", ",", v.Ambient.NewLine, True)
+	'Check if the table exists.
+	f.Intrinsic.Control.If(v.DataTable.uploadDT.RowCount--, =>, 1)
+		f.Data.Datatable.DeleteRow("uploadDT", 0)
+	f.Intrinsic.Control.EndIf
+	'Delete Empty Lines
+	f.Data.DataView.Create("uploadDT", "uploadDV", 22, "Trim(BomParent) <> '' and Trim(Part) <> '' and Trim(LongPart) <> '' and Trim(Ref_Desig) <> ''", "")
+	f.Data.DataView.ToDataTable("uploadDT", "uploadDV", "saveDT", True)
+	f.Data.Datatable.AddColumn("saveDT", "ID_Key", "Long")
+	f.Data.DataView.Close("uploadDT", "uploadDV")
+	f.Data.Datatable.Close("uploadDT")
+	'Check if empty after deleting rows.
+	f.Intrinsic.Control.If(v.DataTable.saveDT.RowCount, =, 0)
+		f.Intrinsic.UI.Msgbox("No rows where found in the file.")
+		f.Data.Datatable.Close("saveDT")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+'	'Save to Table
+'	f.Intrinsic.Control.For(v.Local.iCnt, 0, v.DataTable.saveDT.RowCount--, 1)
+'		v.Local.sParent.Set(v.DataTable.saveDT(v.Local.iCnt).BomParent!FieldValTrim)
+'		v.Local.sPart.Set(v.DataTable.saveDT(v.Local.iCnt).Part!FieldValTrim)
+'		v.Local.sLongPart.Set(v.DataTable.saveDT(v.Local.iCnt).LongPart!FieldValTrim)
+'		v.Local.sRef.Set(v.DataTable.saveDT(v.Local.iCnt).Ref_Desig!FieldValTrim)
+'		
+'		f.Intrinsic.String.RPad(v.Local.sParent, " ", 20, v.Local.sParent)
+'		f.Intrinsic.String.RPad(v.Local.sPart, " ", 20, v.Local.sPart)
+'		f.Intrinsic.String.RPad(v.Local.sLongPart, " ", 50, v.Local.sLongPart)
+'		f.Intrinsic.String.RPad(v.Local.sRef, " ", 10, v.Local.sRef)
+'		
+'		f.Intrinsic.String.Build("Insert into  GCG_6045_REF_DESG (BomParent, Part, LongPart, Ref_Desig) Values ('{0}', '{1}', '{2}', '{3}')", v.Local.sParent, v.Local.sPart, v.Local.sLongPart, v.Local.sRef, v.Local.sSQL)
+'		f.ODBC.Connection!con.OpenCompanyConnection
+'			f.ODBC.Connection!con.Execute(v.Local.sSQL)
+'		f.ODBC.Connection!con.Close
+'	f.Intrinsic.Control.Next(v.Local.iCnt)
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Data.Datatable.SaveToDB("saveDT", "con", "GCG_6045_REF_DESG", "ID_Key", 128, "BomParent@!@BomParent*!*Part@!@Part*!*LongPart@!@LongPart*!*Ref_Desig@!@Ref_Desig")
+	f.ODBC.Connection!con.Close
+	
+	v.Local.sParent.Set(v.DataTable.saveDT(0).BomParent!FieldVal)
+	f.Intrinsic.String.RPad(v.Local.sParent, " ", 20, v.Local.sParent)
+	gui.Form.txtParent.Text(v.Local.sParent)
+	f.Intrinsic.Control.CallSub(loadBom)
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdUpload_Click.End
+
+Program.Sub.cmdFileBrw_Click.Start
+v.Local.sFilePath.Declare
+f.Intrinsic.Control.Try
+	f.Intrinsic.UI.ShowOpenFileDialog("", "", v.Local.sFilePath)
+	f.Intrinsic.Control.If(v.Local.sFilePath.Trim, <>, "***CANCEL***")
+		gui.Form.txtFilePath.Text(v.Local.sFilePath)
+	f.Intrinsic.Control.EndIf	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdFileBrw_Click.End
+
+Program.Sub.cmdLoadBom_Click.Start
+v.Local.sBom.Declare
+f.Intrinsic.Control.Try
+	f.Intrinsic.UI.CommonBrowser(3000,,v.Local.sBom)
+	f.Intrinsic.Control.If(v.Local.sBom, <>, "***CANCEL***")
+		f.Intrinsic.String.Split(v.Local.sBom, "*!*", v.Local.sBom)
+		gui.Form.txtParent.Text(v.Local.sBom(0))
+		f.Intrinsic.Control.CallSub(loadBom)
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdLoadBom_Click.End
+
+Program.Sub.createDisplayDT.Start
+f.Intrinsic.Control.Try
+	f.Data.DataTable.Create("displayDT", true)
+	f.Data.DataTable.AddColumn("displayDT", "SelectCol", "Boolean", False)
+	f.Data.DataTable.AddColumn("displayDT", "BomParent", "String")
+	f.Data.DataTable.AddColumn("displayDT", "Part", "String")
+	f.Data.DataTable.AddColumn("displayDT", "LongPart", "String")
+	f.Data.DataTable.AddColumn("displayDT", "Ref_Desig", "String")
+	f.Data.DataTable.AddColumn("displayDT", "ID_Key", "Long")
+	
+	f.Data.DataView.Create("displayDT", "displayDV", 22)
+	gui.Form.GsGcDisplay.AddGridviewFromDataview("displayGV", "displayDT", "displayDV")
+	gui.Form.GsGcDisplay.MainView("displayGV")
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.createDisplayDT.End
+
+Program.Sub.loadGridProperties.Start
+v.Local.iCnt.Declare
+v.Local.sFields.Declare
+v.Local.iVisibleIndex.Declare
+
+f.Intrinsic.Control.Try
+	f.Intrinsic.String.Split(v.DataTable.displayDT.FieldNames, "*!*", v.Local.sFields)
+	f.Intrinsic.Control.For(v.Local.iCnt, 0, v.Local.sFields.UBound, 1)
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "HeaderFontBold", True)
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "Visible", True)
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "ReadOnly", True)
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "AllowEdit", False)
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "HeaderHAlignment", "Near")
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "CellHAlignment", "Near")
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "HeaderBackColor", v.Color.GSS)
+		gui.Form.GsGcDisplay.SetColumnProperty("displayGV", v.Local.sFields(v.Local.iCnt), "HeaderForeColor", v.Color.White)
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+	
+	'GridView Properties
+	gui.Form.GsGcDisplay.BestFitColumns("displayGV")
+	
+	'gui.Form.GsGcDisplay.SetGridviewProperty("displayGV", "OptionsViewShowAutoFilterRow", True)
+	'gui.Form.GsGcDisplay.SetGridviewProperty("displayGV", "OptionsFindAlwaysVisible", True)
+	'gui.Form.GsGcDisplay.SetGridviewProperty("displayGV", "Showgrouppanel", True)
+	
+	'Possible Column Properties 
+	gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Ref_Desig", "ReadOnly", False)
+	gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Ref_Desig", "AllowEdit", True)
+	gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "SelectCol", "ReadOnly", False)
+	gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "SelectCol", "AllowEdit", True)
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "HeaderHAlignment", "Center")
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "CellHAlignment", "Center")
+	gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "SelectCol", "Caption", " ")
+	gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "LongPart", "Caption", "Long Part")
+	gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Ref_Desig", "Caption", "Reference Designators")
+	gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "ID_Key", "Visible", False)
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "DisplayCustomDatetime", "d")
+
+	gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "SelectCol", "Width", 30)
+	gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "BomParent", "Width", 75)
+	gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Part", "Width", 75)
+	gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "LongPart", "Width", 200)
+	gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Ref_Desig", "Width", 200)
+	
+	'VisibleIndex
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "VisibleIndex", v.Local.iVisibleIndex)
+	'gui.Form.GsGcDisplay.SetColumnProperty("displayGV", "Default", "VisibleIndex", v.Local.iVisibleIndex.++)
+	
+	gui.Form.GsGcDisplay.SetGridviewProperty("displayGV", "OptionsViewColumnAutoWidth", False)
+	
+	'Conditional Formatting
+'	gui.Form.GsGcDisplay.AddStyleFormatCondition("displayGV", "columnName", "TagName", "EQUAL", 1)
+'	gui.Form.GsGcDisplay.SetStyleFormatConditionProperty("displayGV", "columnName", "TagName", "ApplyToRow", True) 
+'	gui.Form.GsGcDisplay.SetStyleFormatConditionProperty("displayGV", "columnName", "TagName", "BackColor", "Color") 
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.loadGridProperties.End
+
+Program.Sub.ErrorMsg.Start
+v.Local.sError.Declare
+
+'Closes ODBC connection, default to connection : "con"
+f.Intrinsic.Control.If(v.ODBC!con.State, =, 1)
+	f.ODBC.Connection!con.Close
+f.Intrinsic.Control.EndIf
+
+'Generic Error message.
+f.Intrinsic.String.Build("Project ProjectName.g2u {0}{0}Subroutine: {1}{0}Error: {2} with Description: {3}", v.Ambient.NewLine, v.Args.CurrentSub, v.Ambient.ErrorNumber, v.Ambient.ErrorDescription, v.Local.sError)
+f.Intrinsic.UI.Msgbox(v.Local.sError)
+Program.Sub.ErrorMsg.End
+
+Program.Sub.loadBom.Start
+v.Local.sBomParent.Declare
+v.Local.sSQL.Declare
+f.Intrinsic.Control.Try
+'Try something
+	v.Local.sBomParent.Set(v.Screen.Form!txtParent.Text)
+	f.Intrinsic.String.RPad(v.Local.sBomParent, " ", 20, v.Local.sBomParent)
+	
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Intrinsic.String.Build("Select * from GCG_6045_REF_DESG where BomParent = '{0}'", v.Local.sBomParent, v.Local.sSQL)
+		f.Data.Datatable.CreateFromSQL("tmpDisplayDT", "con", v.Local.sSQL)
+	f.ODBC.Connection!con.Close
+	'Refresh the table
+	f.Data.Datatable.DeleteRow("displayDT")
+	f.Data.Datatable.AcceptChanges("displayDT")
+	f.Data.Datatable.Merge("tmpDisplayDT", "displayDT", false, 2)
+	f.Data.Datatable.AcceptChanges("displayDT")
+	f.Data.Datatable.Close("tmpDisplayDT")
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.loadBom.End
+
+Program.Sub.Form_UnLoad.Start
+f.Intrinsic.Control.Try
+	f.Intrinsic.Control.End
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.cmdLongPartBrw_Click.Start
+v.Local.sBom.Declare
+v.Local.sRet.Declare
+v.Local.sParts.Declare
+v.Local.sSQL.Declare
+v.Local.sPart.Declare
+f.Intrinsic.Control.Try
+
+	v.Local.sBom.Set(v.Screen.Form!txtParent.Text)
+	f.Intrinsic.Control.If(v.Local.sBom, <>, "")
+		f.Global.Callwrapper.New("Test","Manufacturing.BOM.CostBuildup")
+		f.Global.Callwrapper.SetProperty("Test","Program","      ")
+		f.Global.Callwrapper.SetProperty("Test","Parent",v.Local.sBom)
+		f.Global.Callwrapper.SetProperty("Test","Flags","2")
+		f.Global.Callwrapper.Run("Test")
+		
+		f.ODBC.Connection!con.OpenCompanyConnection
+			'Get Part List String.
+			f.Intrinsic.String.Build("select Distinct Part from v_bi_bom_buildup_e where  isnull(level, '')  <> '' and TRMNL = '{0}'", v.Caller.Terminal, v.Local.sSQL)
+			f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL, v.Local.sParts)
+			f.Intrinsic.String.Replace(v.Local.sParts, "#$#", "','", v.Local.sParts)
+			
+			f.Intrinsic.String.Build("Select A.Part, B.Display_Part, B.Display_Rev, A.Description from V_INVENTORY_MSTR A Left Join INV_LXR B on A.Part = B.Gss_Part where A.Part in ('{0}')", v.Local.sParts, v.Local.sSQL)
+		f.ODBC.Connection!con.Close
+	f.Intrinsic.Control.Else
+		v.Local.sSQL.Set("Select A.Part, B.Display_Part, B.Display_Rev, A.Description from V_INVENTORY_MSTR A Left Join INV_LXR B on A.Part = B.Gss_Part")
+	f.Intrinsic.Control.EndIf
+	
+	f.ODBC.Connection!con.OpenCompanyConnection
+		'f.Intrinsic.UI.Browser("Long Part", "con", "Select Gss_Part as Part, Display_Part as LongPart, Display_Rev as LongRev from INV_LXR", "Part*!*Long Part*!*Long Rev", "60*!*100*!*40", v.Local.sRet)
+		f.Intrinsic.UI.Browser("Long Part", "con", v.Local.sSQL, "Part*!*Long Part*!*Long Rev*!*Description", "60*!*100*!*40*!*200", v.Local.sRet)
+	f.ODBC.Connection!con.Close
+	
+	f.Intrinsic.Control.If(v.Local.sRet.Trim, <>, "***CANCEL***")
+		f.Intrinsic.String.Split(v.Local.sRet, "*!*", v.Local.sRet)
+		
+		f.Intrinsic.String.RPad(v.Local.sRet(1).Trim, " ", 50, v.Local.sRet(1))
+		f.Intrinsic.String.RPad(v.Local.sRet(2).Trim, " ", 10, v.Local.sRet(2))
+		f.Intrinsic.String.Build("{0}{1}", v.Local.sRet(1), v.Local.sRet(2), v.Local.sPart)
+		
+		gui.Form.txtLongPart.Text(v.Local.sPart)
+		v.Global.sPart.Set(v.Local.sRet(0))
+		v.Screen.Form!chkBlank.Value(False)
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdLongPartBrw_Click.End
+
+Program.Sub.cmdAdd_Click.Start
+v.Local.sBom.Declare
+v.Local.sPart.Declare
+v.Local.sLongPart.Declare
+v.Local.sRefDesg.Declare
+v.Local.sSQL.Declare
+f.Intrinsic.Control.Try
+	v.Local.sBom.Set(v.Screen.Form!txtParent.Text)
+	v.Local.sPart.Set(v.Global.sPart)
+	v.Local.sLongPart.Set(v.Screen.Form!txtLongPart.Text)
+	v.Local.sRefDesg.Set(v.Screen.Form!txtRefDesg.Text)
+	
+	f.Intrinsic.Control.If(v.Local.sBom.Trim, =, "")
+		f.Intrinsic.UI.Msgbox("Please Select a Bom Parent")
+	f.Intrinsic.Control.EndIf
+	
+'	f.Intrinsic.Control.If(v.Local.sPart.Trim, =, "")
+'		f.Intrinsic.UI.Msgbox("Please Select a Long Part")
+'	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.Local.sLongPart.Trim, =, "")
+		f.Intrinsic.UI.Msgbox("Please Select a Long Part")
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.Local.sRefDesg.Trim, =, "")
+		f.Intrinsic.UI.Msgbox("Please Input a Reference Designator")
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.Screen.Form!chkBlank.Value)
+		v.Local.sPart.Set("Blank_Part")
+	f.Intrinsic.Control.EndIf
+	
+	f.ODBC.Connection!con.OpenCompanyConnection
+		f.Intrinsic.String.Build("Insert into  GCG_6045_REF_DESG (BomParent, Part, LongPart, Ref_Desig) Values ('{0}', '{1}', '{2}', '{3}')", v.Local.sBom, v.Local.sPart, v.Local.sLongPart, v.Local.sRefDesg, v.Local.sSQL)
+		f.ODBC.Connection!con.Execute(v.Local.sSQL)
+	f.ODBC.Connection!con.Close
+	
+	f.Intrinsic.Control.CallSub(loadBom)
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdAdd_Click.End
+
+Program.Sub.Comments.Start
+${$5$}$3.0.0.0$}$1
+${$6$}$aanazco$}$20200929152424352$}$7aQAV3Tor/tR9bkuakHbuzQlHVuXCGOz1p4mZeGNapNp/XdLn6TWYje1LT9usnEAqced9LwxeDc=
+Program.Sub.Comments.End
